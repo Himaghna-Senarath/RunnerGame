@@ -1,0 +1,154 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/tiles/tile1.png" type="Texture" id=1]
+[ext_resource path="res://source/actors/KinematicBody2D.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/tiles/tile01.png" type="Texture" id=3]
+[ext_resource path="res://assets/backgrounds/background.png" type="Texture" id=4]
+[ext_resource path="res://source/actors/spikes.gd" type="Script" id=5]
+[ext_resource path="res://assets/enemy objs/spikes/spike2.png" type="Texture" id=6]
+[ext_resource path="res://source/actors/Bird.tscn" type="PackedScene" id=7]
+[ext_resource path="res://source/actors/birds.gd" type="Script" id=8]
+[ext_resource path="res://assets/enemy objs/bird/bird1.png" type="Texture" id=9]
+[ext_resource path="res://assets/enemy objs/bird/bird2.png" type="Texture" id=10]
+[ext_resource path="res://assets/fonts/pico-8-mono.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://source/actors/Popup.gd" type="Script" id=12]
+[ext_resource path="res://assets/SFX and Music/collisionsound.wav" type="AudioStream" id=13]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 0, 0, 56, 0, 56, 64, 0, 64 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
+
+[sub_resource type="TileSet" id=3]
+0/name = "tile01.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 56, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "tile1.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 64, 64 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 2 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 11 )
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Bird" parent="." instance=ExtResource( 7 )]
+position = Vector2( -36.4729, 209.271 )
+script = ExtResource( 8 )
+
+[node name="spikes" type="Sprite" parent="."]
+position = Vector2( -32.2456, 309.693 )
+scale = Vector2( 1.16153, 1.11604 )
+texture = ExtResource( 6 )
+script = ExtResource( 5 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 3 )
+cell_size = Vector2( 25, 25 )
+format = 1
+tile_data = PoolIntArray( -65536, 1, 0, -65534, 1, 0, -65533, 1, 0, -65531, 1, 0, -65529, 1, 0, -65527, 1, 0, -65525, 1, 0, -65523, 1, 0, -65521, 1, 0, -65519, 1, 0, -65517, 1, 0, -65516, 1, 0, -65514, 1, 0, -65513, 1, 0, -65512, 1, 0, -65511, 1, 0, -65509, 1, 0, -65507, 1, 0, -65506, 1, 0, -65504, 1, 0, -65502, 1, 0, -65500, 1, 0, -65498, 1, 0, -65497, 1, 0, -65495, 1, 0, -65493, 1, 0, -65491, 1, 0, -65490, 1, 0, -65488, 1, 0, 851968, 1, 0, 851969, 1, 0, 851970, 1, 0, 851972, 1, 0, 851973, 1, 0, 851975, 1, 0, 851977, 1, 0, 851979, 1, 0, 851981, 1, 0, 851982, 1, 0, 851984, 1, 0, 851986, 1, 0, 851987, 1, 0, 851989, 1, 0, 851990, 1, 0, 851991, 1, 0, 851992, 1, 0, 851993, 1, 0, 851994, 1, 0, 851995, 1, 0, 851996, 1, 0, 851997, 1, 0, 851998, 1, 0, 852000, 1, 0, 852002, 1, 0, 852004, 1, 0, 852006, 1, 0, 852008, 1, 0, 852010, 1, 0, 852012, 1, 0, 852014, 1, 0, 852016, 1, 0 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 58.1184, 193.464 )
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2( 1024, 0 )
+
+[node name="background" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2( 543.773, 245.124 )
+scale = Vector2( 1.05917, 0.840298 )
+texture = ExtResource( 4 )
+
+[node name="birds" type="AnimatedSprite" parent="."]
+position = Vector2( -154.394, 388.831 )
+scale = Vector2( 0.708069, 0.745803 )
+frames = SubResource( 4 )
+
+[node name="Score" type="RichTextLabel" parent="."]
+margin_left = 576.344
+margin_top = 52.6106
+margin_right = 736.344
+margin_bottom = 124.611
+custom_fonts/normal_font = SubResource( 5 )
+meta_underlined = false
+text = "Score 0
+"
+
+[node name="HiScore" type="RichTextLabel" parent="."]
+margin_left = 471.638
+margin_top = -88.3755
+margin_right = 711.638
+margin_bottom = -24.3755
+custom_fonts/normal_font = SubResource( 6 )
+text = "HighScore 
+"
+
+[node name="Popup" type="Popup" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 12 )
+
+[node name="Restart" type="Label" parent="Popup"]
+margin_right = 352.0
+margin_bottom = 185.0
+custom_colors/font_color = Color( 0.423529, 0.423529, 0.423529, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "PRESS SPACE TO RESTART
+"
+
+[node name="CollisionSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 13 )

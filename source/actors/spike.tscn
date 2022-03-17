@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://assets/enemy objs/spikes/spike2.png" type="Texture" id=1]
+
+[node name="Enemy" type="KinematicBody2D"]
+
+[node name="spikes" type="Sprite" parent="."]
+position = Vector2( 0, -3.2283 )
+scale = Vector2( 1.04507, 1.00772 )
+texture = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 16.806, 15.6616, 16.5755, -18.6967, 0.43396, -18.6967, 0.43396, -13.6236, -9.48153, -13.6236, -9.48153, -18.6967, -15.2463, -18.6967, -15.2463, -13.6236, -20.0888, -13.6236, -19.8582, 16.1228 )
